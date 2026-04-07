@@ -54,13 +54,13 @@ class FacebookNotification implements Notification{
 }
 
 // Padrão Factory para instanciar Notificação
-class NotificationFactory {
-    public static Notification createNotification(String type) {
-        if (type == null || type.isEmpty()) {
+class NotificationFactory{
+    public static Notification createNotification(String type){
+        if (type == null || type.isEmpty()){
             throw new IllegalArgumentException("Tipo de notificação não pode ser nulo ou vazio.");
         }
         
-        switch (type.toUpperCase()) {
+        switch (type.toUpperCase()){
             case "EMAIL":
                 return new EmailNotification();
             case "SMS":
