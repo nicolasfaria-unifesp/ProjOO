@@ -42,10 +42,10 @@ class EmailNotification implements Notification {
     }
 }
 
-class FacebookNotification implements Notification {
+class PushNotification implements Notification {
     @Override
     public void send(String message, String recipient){
-        System.out.println("Enviando Mensagem no Facebook para [" + recipient + "]: " + message);
+        System.out.println("Enviando Notificação Push para [" + recipient + "]: " + message);
     }
 }
 
@@ -130,8 +130,8 @@ class NotificationFactory {
                 // Utilizando o Adapter para instanciar a notificação de SMS
                 notification = new SMSAdapter(new ExternalSMSApi());
                 break;
-            case "FACEBOOK":
-                notification = new FacebookNotification();
+            case "PUSH":
+                notification = new PushNotification();
                 break;
             default:
                 throw new IllegalArgumentException("Tipo de notificação desconhecido: " + type);
@@ -162,11 +162,11 @@ public class Main {
             sms.send("Reenviando novamente código 1234", "(11) 99999-9999");
             sms.send("Reenviando mais uma vez código 1234", "(11) 99999-9999"); // Bloqueado pelo Proxy
 
-            Notification facebook = NotificationFactory.createNotification("FACEBOOK");
-            facebook.send("Você ganhou 20% de desconto no nosso app.", "DeviceToken123");
+            Notification push = NotificationFactory.createNotification("PUSH"); // Trocando pra push pq por algum motivo eu apaguei da minha cabeça que tinha q usar esse de exemplo
+            push.send("Você ganhou 20% de desconto no nosso app.", "DeviceToken123");
             
             // Testando validação do Proxy
-            facebook.send("Mensagem sem destinatário", ""); 
+            push.send("Mensagem sem destinatário", ""); 
 
             // Vai gerar a exceção esperada
             Notification erro = NotificationFactory.createNotification("WHATSAPP");
