@@ -176,7 +176,7 @@ public class Main {
             externalSms.send("Reenviando novamente código 1234", "(11) 99999-9999");
             externalSms.send("Reenviando mais uma vez código 1234", "(11) 99999-9999"); // Bloqueado pelo Proxy
 
-            Notification push = NotificationFactory.createNotification("PUSH"); // Trocando pra push pq por algum motivo eu apaguei da minha cabeça que tinha q usar esse de exemplo
+            Notification push = NotificationFactory.createNotification("PUSH"); // Trocando para push pois por algum motivo eu apaguei da minha cabeça que tinha que usar PUSH de exemplo e eu coloquei facebook no lugar
             push.send("Você ganhou 20% de desconto no nosso app.", "DeviceToken123");
             
             // Testando validação do Proxy
