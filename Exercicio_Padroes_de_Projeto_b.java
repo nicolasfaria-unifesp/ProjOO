@@ -42,6 +42,13 @@ class EmailNotification implements Notification {
     }
 }
 
+class SMSNotification implements Notification {
+    @Override
+    public void send(String message, String recipient){
+        System.out.println("Enviando SMS para [" + recipient + "]: " + message);
+    }
+}
+
 class PushNotification implements Notification {
     @Override
     public void send(String message, String recipient){
@@ -127,7 +134,10 @@ class NotificationFactory {
                 notification = new EmailNotification();
                 break;
             case "SMS":
-                // Utilizando o Adapter para instanciar a notificação de SMS
+                notification = new SMSNotification();
+                break;
+            case "EXTERNAL_SMS":
+                // Utilizando o Adapter para instanciar a notificação de SMS usando a API externa
                 notification = new SMSAdapter(new ExternalSMSApi());
                 break;
             case "PUSH":
@@ -156,11 +166,15 @@ public class Main {
             Notification email = NotificationFactory.createNotification("EMAIL");
             email.send("Seu pedido foi confirmado!", "cliente@email.com");
 
+            // Testando SMS normal
             Notification sms = NotificationFactory.createNotification("SMS");
             sms.send("Seu código de verificação é 1234", "(11) 99999-9999");
-            sms.send("Reenviando código 1234", "(11) 99999-9999");
-            sms.send("Reenviando novamente código 1234", "(11) 99999-9999");
-            sms.send("Reenviando mais uma vez código 1234", "(11) 99999-9999"); // Bloqueado pelo Proxy
+            
+            // Testando a API Externa de SMS com o bloqueio do Proxy
+            Notification externalSms = NotificationFactory.createNotification("EXTERNAL_SMS");
+            externalSms.send("Reenviando código 1234 via API Externa", "(11) 99999-9999");
+            externalSms.send("Reenviando novamente código 1234", "(11) 99999-9999");
+            externalSms.send("Reenviando mais uma vez código 1234", "(11) 99999-9999"); // Bloqueado pelo Proxy
 
             Notification push = NotificationFactory.createNotification("PUSH"); // Trocando pra push pq por algum motivo eu apaguei da minha cabeça que tinha q usar esse de exemplo
             push.send("Você ganhou 20% de desconto no nosso app.", "DeviceToken123");
