@@ -158,10 +158,9 @@ public class Main {
 
             Notification sms = NotificationFactory.createNotification("SMS");
             sms.send("Seu código de verificação é 1234", "(11) 99999-9999");
-            
             sms.send("Reenviando código 1234", "(11) 99999-9999");
-            sms.send("Tentativa 3", "(11) 99999-9999");
-            sms.send("Tentativa 4 - Esta deve ser bloqueada", "(11) 99999-9999"); // Bloqueado pelo Proxy
+            sms.send("Reenviando novamente código 1234", "(11) 99999-9999");
+            sms.send("Reenviando mais uma vez código 1234", "(11) 99999-9999"); // Bloqueado pelo Proxy
 
             Notification facebook = NotificationFactory.createNotification("FACEBOOK");
             facebook.send("Você ganhou 20% de desconto no nosso app.", "DeviceToken123");
