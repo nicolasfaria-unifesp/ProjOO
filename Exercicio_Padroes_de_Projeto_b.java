@@ -168,10 +168,11 @@ public class Main {
 
             // Testando SMS normal
             Notification sms = NotificationFactory.createNotification("SMS");
-            sms.send("Seu código de verificação é 1234", "(11) 99999-9999");
+            sms.send("Seu código de verificação é 9876", "(11) 99999-9999");
             
             // Testando a API Externa de SMS com o bloqueio do Proxy
             Notification externalSms = NotificationFactory.createNotification("EXTERNAL_SMS");
+            externalSms.send("Seu código de verificação é 1234", "(11) 99999-9999");
             externalSms.send("Reenviando código 1234 via API Externa", "(11) 99999-9999");
             externalSms.send("Reenviando novamente código 1234", "(11) 99999-9999");
             externalSms.send("Reenviando mais uma vez código 1234", "(11) 99999-9999"); // Bloqueado pelo Proxy
