@@ -139,7 +139,7 @@ class HomeTheaterFacade {
 }
 
 // Testando
-public class Main {
+public class Padroes_de_Projeto_c_Home_Theater {
     public static void main(String[] args) {
         // Declaração dos objetos
         TV tv = new TV();
