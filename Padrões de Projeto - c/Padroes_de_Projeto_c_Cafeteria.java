@@ -113,7 +113,7 @@ class ChocolateSyrup extends AddOnDecorator {
 }
 
 // Testando
-public class Main {
+public class Padroes_de_Projeto_c_Cafeteria {
     public static void main(String[] args) {
         // Declaração dos objetos
         Beverage order1 = new Espresso();
