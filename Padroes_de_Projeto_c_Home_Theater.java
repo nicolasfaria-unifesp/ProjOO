@@ -1,3 +1,4 @@
+// Classes
 class TV {
     public void turnOn() {
         System.out.println("TV ligada.");
@@ -12,7 +13,7 @@ class Projector {
     public void turnOn() {
         System.out.println("Projetor ligado.");
     }
-
+    
     public void turnOff() {
         System.out.println("Projetor desligado.");
     }
@@ -78,7 +79,9 @@ class AmbientLight {
     }
 }
 
+// Classe Facade
 class HomeTheaterFacade {
+    // Declaração das Classes
     private TV tv;
     private Projector projector;
     private Receiver receiver;
@@ -86,6 +89,7 @@ class HomeTheaterFacade {
     private SoundSystem soundSystem;
     private AmbientLight ambientLight;
 
+    // Construtor para inicializar os componentes
     public HomeTheaterFacade(TV tv, Projector projector, Receiver receiver, MediaPlayer mediaPlayer, SoundSystem soundSystem, AmbientLight ambientLight) {
         this.tv = tv;
         this.projector = projector;
@@ -95,6 +99,7 @@ class HomeTheaterFacade {
         this.ambientLight = ambientLight;
     }
 
+    // Rotina para assistir filme
     public void watchMovie(String movieTitle) {
         System.out.println("\n--- Iniciando rotina: Assistir Filme ---");
         ambientLight.dim();
@@ -107,6 +112,7 @@ class HomeTheaterFacade {
         mediaPlayer.play(movieTitle);
     }
 
+    // Rotina para ouvir música
     public void listenToMusic(String musicTitle) {
         System.out.println("\n--- Iniciando rotina: Ouvir Música ---");
         ambientLight.turnOn();
@@ -119,6 +125,7 @@ class HomeTheaterFacade {
         mediaPlayer.play(musicTitle);
     }
 
+    // Rotina para desligar todo o sistema
     public void turnOffEverything() {
         System.out.println("\n--- Desligando o Home Theater ---");
         ambientLight.turnOn();
@@ -131,8 +138,10 @@ class HomeTheaterFacade {
     }
 }
 
+// Testando
 public class Main {
     public static void main(String[] args) {
+        // Declaração dos objetos
         TV tv = new TV();
         Projector projector = new Projector();
         Receiver receiver = new Receiver();
@@ -140,12 +149,16 @@ public class Main {
         SoundSystem soundSystem = new SoundSystem();
         AmbientLight ambientLight = new AmbientLight();
 
+        // Declaração da Facade com os objetos
         HomeTheaterFacade homeTheater = new HomeTheaterFacade(tv, projector, receiver, mediaPlayer, soundSystem, ambientLight);
 
+        // Teste da rotina de filme
         homeTheater.watchMovie("O Senhor dos Anéis");
         
+        // Teste da rotina de música
         homeTheater.listenToMusic("Daft Punk - Random Access Memories");
         
+        // Teste da rotina de desligamento
         homeTheater.turnOffEverything();
     }
 }
