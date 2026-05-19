@@ -1,11 +1,11 @@
-class Arvore {
-    private int qtGalhos;
-    private int posicaoX;
-    private int posicaoY;
-    private float altura;
+public class Arvore {
+    private final int qtGalhos;
+    private final int posicaoX;
+    private final int posicaoY;
+    private final float altura;
     private final TipoArvore tipo;
 
-    public ArvorePosicionada(TipoArvore tipo, String especie, String textura, int qtGalhos, int x, int y, float altura) {
+    public Arvore(TipoArvore tipo, int qtGalhos, int x, int y, float altura) {
         this.tipo = tipo;
         this.qtGalhos = qtGalhos;
         this.posicaoX = x;
@@ -13,7 +13,13 @@ class Arvore {
         this.altura = altura;
     }
 
+    public TipoArvore getTipo() { return tipo; }
+    public float getAltura() { return altura; }
+    public int getQtGalhos() { return qtGalhos; }
+    public int getX() { return posicaoX; }
+    public int getY() { return posicaoY; }
+
     public void printInformacoes() {
-        System.out.println("Renderizando " + getEspecie() + " com a textura " + getTexturaFolha() + " na posição (" + posicaoX + "," + posicaoY + ") com altura " + altura + " e " + qtGalhos + " galhos.");
+        System.out.println("Renderizando " + tipo.getEspecie() + " com a textura " + tipo.getTexturaFolha() + " na posição (" + posicaoX + "," + posicaoY + ") com altura " + altura + " e " + qtGalhos + " galhos.");
     }
 }
