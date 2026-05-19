@@ -1,9 +1,14 @@
-class FabricArvore {
+public class FabricArvore {
     private static final Arvore[] cacheArvores = new Arvore[1000];
     private static int totalArvores = 0;
 
     public static Arvore getArvore(String especie, String textura, int qtGalhos, int x, int y, float altura) {
         TipoArvore tipoCompartilhado = FabricTipoArvore.getTipo(especie, textura);
+        
+        if (tipoCompartilhado == null) {
+            return null;
+        }
+
         if (totalArvores >= 1000){
             System.out.println("Limite de árvores atingido.");
             return null;
