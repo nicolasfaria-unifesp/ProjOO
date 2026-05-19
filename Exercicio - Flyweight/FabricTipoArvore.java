@@ -1,4 +1,4 @@
-class FabricTipoArvore {
+public class FabricTipoArvore {
     private static final TipoArvore[] cache = new TipoArvore[50];
     private static int totalTipos = 0;
 
