@@ -1,4 +1,4 @@
-public abstract class TipoArvore {
+class TipoArvore {
     private final String especie;
     private final String texturaFolha;
 
@@ -7,8 +7,10 @@ public abstract class TipoArvore {
         this.texturaFolha = texturaFolha;
     }
 
-    public void printInformacoes() { 
-        System.out.println("Espécie: " + this.especie);
-        System.out.println("Textura da folha: " + this.texturaFolha);
+    public String getEspecie() { 
+        return especie;
+    }
+    public String getTexturaFolha() {
+        return texturaFolha;
     }
 }
