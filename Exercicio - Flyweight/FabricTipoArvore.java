@@ -4,7 +4,7 @@ public class FabricTipoArvore {
 
     public static TipoArvore getTipo(String especie, String textura) {
         if (totalTipos >= 50){
-            System.out.println("Limite de tipos de árvores atingido.");
+            System.out.println("Limite de tipos de arvores atingido.");
             return null;
         }
         for (int i = 0; i < totalTipos; i++) {

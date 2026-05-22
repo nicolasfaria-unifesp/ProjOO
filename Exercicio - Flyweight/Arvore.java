@@ -20,6 +20,6 @@ public class Arvore {
     public int getY() { return posicaoY; }
 
     public void printInformacoes() {
-        System.out.println("Renderizando " + tipo.getEspecie() + " com a textura " + tipo.getTexturaFolha() + " na posição (" + posicaoX + "," + posicaoY + ") com altura " + altura + " e " + qtGalhos + " galhos.");
+        System.out.println("Renderizando " + tipo.getEspecie() + " com a textura " + tipo.getTexturaFolha() + " na posicao (" + posicaoX + "," + posicaoY + ") com altura " + altura + " e " + qtGalhos + " galhos.");
     }
 }

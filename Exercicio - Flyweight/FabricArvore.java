@@ -10,7 +10,7 @@ public class FabricArvore {
         }
 
         if (totalArvores >= 1000){
-            System.out.println("Limite de árvores atingido.");
+            System.out.println("Limite de arvores atingido.");
             return null;
         } 
         for (int i = 0; i < totalArvores; i++) {
