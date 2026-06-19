@@ -11,7 +11,5 @@ abstract class ComparadorTemplate implements Comparator<String> {
         return chave1.compareTo(chave2);
     }
 
-    protected abstract String extrairChave(String s){
-
-    }
+    protected abstract String extrairChave(String s);
 }
